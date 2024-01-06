@@ -30,20 +30,29 @@ int main(){
 }
 
 void NhapMang(int a[], int &n){
-
-    srand(time(NULL));  //Khởi tạo số ngẫu nhiên
+    srand(time(NULL));
 
     cout << "Nhap vao so luong phan tu trong mang a[n]: ";
     cin >> n;
 
-    int i;
-    if(n > 0){
-        a[i] = rand() % 100;
-        for(i = 0; i <= n; i++){
-            a[i] = a[i - 1] + rand() % 100;
+    int temp;
+    
+    for(int i = 0; i < n; i++){
+        temp = rand() % 9999 + 11;
+        
+        if (i == 0) {
+            a[i] = temp;
+        } else {
+            for(int j = 0; j < i; j++){
+                while(a[j] == temp){
+                    j = 0;
+                    temp = rand() % 9999 + 11;
+                }
+            }
+            a[i] = temp;
         }
     }
-}   //Khởi tạo ngẫu nhiên từng phần tử từ chỉ số 10 -> n-1
+}
 
 void XuatMang(int a[], int n){
     for(int i = 0; i< n; i++){

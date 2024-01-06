@@ -32,20 +32,29 @@ int main(){
 }
 
 void NhapMang(int a[], int &n){
-
-    srand(time(NULL));  //Khởi tạo số ngẫu nhiên
+    srand(time(NULL));
 
     cout << "Nhap vao so luong phan tu trong mang a[n]: ";
     cin >> n;
 
-    int i;
-    if(n > 0){
-        a[i] = rand() % 100;
-        for(i = 0; i <= n; i++){
-            a[i] = a[i - 1] + rand() % 100;
+    int temp;
+    
+    for(int i = 0; i < n; i++){
+        temp = rand() % 9999 + 11;
+        
+        if (i == 0) {
+            a[i] = temp;
+        } else {
+            for(int j = 0; j < i; j++){
+                while(a[j] == temp){
+                    j = 0;
+                    temp = rand() % 9999 + 11;
+                }
+            }
+            a[i] = temp;
         }
     }
-}   //Khởi tạo ngẫu nhiên từng phần tử từ chỉ số 10 -> n-1
+}
 
 void XuatMang(int a[], int n){
     for(int i = 0; i< n; i++){
@@ -53,19 +62,22 @@ void XuatMang(int a[], int n){
     }
 }
 
-bool SoTang(int n){ //Tạo 1 hàm boolean để kiểm tra số đó là số tăng hay ko tăng, và trả về true or false
-    int temp = n;   //gán n = temp để dùng temp trong vòng lặp
-    int r = 0;      //khởi tạo biến r là biến số cuối của số n.
-    while (temp >= 10)  //Nếu temp < 10 thì thoát vòng lặp
+bool SoTang(int n){ 
+    int temp = n;   
+    int r = temp % 10;
+    temp /= 10;
+    int k;
+    while (temp >= 10)  
     {
-        r = temp % 10;  //tách ra số cuối
+        k = temp % 10;  //tách ra số ke cuối
         temp /= 10; //chạy lại temp = temp / 10/
+        
+        
     }
-
-    if(r > ((temp / 10) % 10))  //Hiểu là nếu số cuối > số kề cuối. số kề cuối = (n / 10) % 10
-        return true;    //trả về đúng hoặc sai
-    else
-        return false;
+    if(r > k)  //Hiểu là nếu số cuối > số kề cuối. số kề cuối = (n / 10) % 10
+            return true;    //trả về đúng hoặc sai
+        else
+            return false;
 }
 
 int CheckSoTang(int a[], int n){    
