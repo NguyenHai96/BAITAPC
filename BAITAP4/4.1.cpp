@@ -9,10 +9,10 @@
 using namespace std;
 
 enum Type{  //Ta khởi tạo biến Type kiểu enum và các biến hằng gồm: INHOA, inthuong, ChuSo, KyTuDacBiet
-    INHOA,
+    inhoa,
     inthuong,
-    ChuSo,
-    KyTuDacBiet
+    chuso,
+    kytudacbiet
 };
 
 int CheckString(string a, enum Type Check);
@@ -31,13 +31,13 @@ int main(){
 
     //In số lượng các ký tự ra màn hình
     cout << "Chuoi S co so ky tu in hoa la: ";
-    cout << CheckString(ChuoiS,INHOA) << endl;  //truyền vào chuỗi S để check và gọi biến INHOA để trả về giá trị đếm chữ INHOA.
+    cout << CheckString(ChuoiS,inhoa) << endl;  //truyền vào chuỗi S để check và gọi biến INHOA để trả về giá trị đếm chữ INHOA.
     cout << "Chuoi S co so ky tu in thuong la: ";
     cout << CheckString(ChuoiS,inthuong) << endl;
     cout << "Chuoi S co so ky tu So la: ";
-    cout << CheckString(ChuoiS,ChuSo) << endl;
+    cout << CheckString(ChuoiS,chuso) << endl;
     cout << "Chuoi S co so ky tu Dac Biet la: ";
-    cout << CheckString(ChuoiS,KyTuDacBiet) << endl;
+    cout << CheckString(ChuoiS,kytudacbiet) << endl;
 
     return 0;
 }
@@ -71,7 +71,7 @@ int CheckString(string a, enum Type Check){ //Có 2 tham số là chuỗi a, và
     special = n - (n_inhoa + n_inthuong + n_so);    //Biến đếm ký tự đặc biệt sẽ bằng số ký tự trong chuỗi a trừ đi các ký tự còn lại
     switch (Check)  //Dùng câu lệnh điều kiện switch để kiểu tra và xuất ra giá trị của từng case
     {
-        case INHOA: //Khi goị biến hằng INHOA thì trả về giá trị biến đếm n_inhoa.
+        case inhoa: //Khi goị biến hằng INHOA thì trả về giá trị biến đếm n_inhoa.
             return n_inhoa;
             break;
         
@@ -79,11 +79,11 @@ int CheckString(string a, enum Type Check){ //Có 2 tham số là chuỗi a, và
             return n_inthuong;
             break;
         
-        case ChuSo: //tương tự
+        case chuso: //tương tự
             return n_so;
             break;
         
-        case KyTuDacBiet:   //tương tự
+        case kytudacbiet:   //tương tự
             return special;
             break;
     }
