@@ -16,10 +16,7 @@ private:
     int old;
     double diem;
 public:
-    // SinhVien(int mssv){
-    //     this -> mssv = mssv;
-    // }
-    static int count;
+   
     
     void nhap(){
         cout << "-----------------------------------------" << endl;
@@ -36,7 +33,6 @@ public:
     }
     void Xuat(){
         cout << "-----------------------------------------" << endl;
-        // cout << "Sinh vien thu " << count << ":" << endl;
         cout << "Ma sinh vien: " << mssv << endl;
         cout << "Ten sinh vien: " << name << endl;
         cout << "Tuoi: " << old << endl;
@@ -44,11 +40,10 @@ public:
     }
 };
 
-int SinhVien::count = 0;
-
 int main(){
     SinhVien sv1,sv2;
     sv1.nhap();
+    sv1.Xuat();
     sv2.nhap();
     sv1.Xuat();
     sv2.Xuat();

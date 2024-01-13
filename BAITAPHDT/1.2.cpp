@@ -15,18 +15,22 @@ class Rectangle{
         int dai;
         int rong;
     public:
-        Rectangle(){}
+        Rectangle(int d, int r){
+            this ->dai = d;
+            this ->rong = r;
+        }
 
-        void VeHinhChuNhat(int d, int r){
+        void veHinhChuNhat(){
+
             cout << "Ve hinh chu nhat X ra man hinh voi hoa tiec '*': " << endl;
             //Cho vòng for lặp qua chiều rộng của hình chữ nhật trc
-            for(int i = 1; i <= r; i++){
+            for(int i = 1; i <= this->rong; i++){
 
-                for(int j = 1; j <= d; j++){
-                    if(i == 1 || i == r){
+                for(int j = 1; j <= this ->dai; j++){
+                    if(i == 1 || i == this ->rong){
                         cout << "*";
                     }else{
-                        if(i != 1 && i != r && (j == 1 || j == d)){
+                        if(i != 1 && i != this ->rong && (j == 1 || j == this->dai)){
                             cout << "*";
                         }else{
                             cout << " ";
@@ -37,25 +41,26 @@ class Rectangle{
             }
         }
 
-        void DienTich(int d, int r){
-            cout << "Dien tich hinh chu nhat la: " << d*r << endl;
+        void dienTich(){
+            cout << "Dien tich hinh chu nhat la: " << this->rong*this->dai << endl;
         }
 
-        void ChuVi(int d, int r){
-            cout << "Chu vi hinh chu nhat la: " << (d + r)*2 << endl;
+        void chuVi(){
+            cout << "Chu vi hinh chu nhat la: " << (this ->dai + this ->rong)*2 << endl;
         }
 };
 
 int main(){
-    Rectangle hcn;
     int d,r;
     cout << "Nhap chieu dai cua hinh chu nhat: ";
     cin >> d;
     cout << "Nhap chieu rong cua hinh chu nhat: ";
     cin >> r;
-    hcn.VeHinhChuNhat(d,r);
-    hcn.DienTich(d,r);
-    hcn.ChuVi(d,r);
+    Rectangle hcn(d,r);
+    
+    hcn.veHinhChuNhat();
+    hcn.dienTich();
+    hcn.chuVi();
 
     return 0;
 }
