@@ -39,41 +39,44 @@ class Hang{
         string namehang;
         double pricehang;
         double weighthang;
+        NSX d;
     public:
+        Hang(){}
+        Hang(int idhang, string namehang, double pricehang, double weighthang, NSX d){
+            this->idhang = idhang;
+            this->namehang = namehang;
+            this->pricehang = pricehang;
+            this->weighthang = weighthang;
+            this->d = d;
+        }
 
-        NSX init(){
-            int a;
-            string b,c;
-            NSX d;
+        void inPutHang(){
             cout << "Nhap ma don hang: ";
             cin >> this->idhang;
             cout << "Nhap ten don hang: "; cin.ignore(); getline(cin,this->namehang);
             cout << "Nhap gia don hang: "; cin >> this->pricehang;
             cout << "Nhap khoi luong don hang: "; cin >> this->weighthang;
-            NSX x;
-            cout << "Nhap ma NSX: "; cin >> a;
-            cout << "Nhap ten NSX: "; cin.ignore(); getline(cin,b);
-            cout << "Nhap dia chi NSX: "; getline(cin,c);
-            d = NSX(a,b,c);
-            return d;
+            cout << "Nhap ma NSX: "; cin >> this->d.idnsx;
+            cout << "Nhap ten NSX: "; cin.ignore(); getline(cin,this->d.namensx);
+            cout << "Nhap dia chi NSX: "; getline(cin,this->d.addnsx);
         }
 
-        void show(NSX a){
+        void outPutHang(){
+            cout << "-------------------------------------" << endl;
             cout << "Ma don hang: " << this->idhang << endl;
             cout << "Ten don hang: " << this->namehang << endl;
             cout << "Gia don hang: " << this->pricehang << endl;
             cout << "Khoi luong hang: " << this->weighthang << endl;
-            cout << "Ma NSX: " << a.idnsx << endl;
-            cout << "Ten NSX: " << a.namensx << endl;
-            cout << "Dia chi NSX: " << a.addnsx << endl;
+            cout << "Ma NSX: " << d.idnsx << endl;
+            cout << "Ten NSX: " << d.namensx << endl;
+            cout << "Dia chi NSX: " << d.addnsx << endl;
         }
 };
 
 int main(){
     Hang a;
-    NSX b;
-    b = a.init();
-    a.show(b);
+    a.inPutHang();
+    a.outPutHang();
 
     return 0;
 }

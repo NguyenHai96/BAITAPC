@@ -52,20 +52,20 @@ class Student{
                 cout << "Ten sinh vien: " << this->namesv << endl;
                 cout << "Tong diem cua sinh vien: " << this->sumPoint() << endl;
         }
-        
-        friend void arrange(vector<Student> a){
-            Student temp;
-            for(int i = 0; i < (a.size()-1) ; i++){
-                for(int j = i + 1 ; j < a.size(); j++){
-                    if(a[i].sumPoint() > a[j].sumPoint()){
-                        a[i] = a[j];
-                        a[j] = temp;
-                        temp = a[i];
-                    }
+};
+
+void arrange(vector<Student> &a){
+    Student temp;
+        for(int i = 0; i < (a.size()-1) ; i++){
+            for(int j = i + 1 ; j < a.size(); j++){
+                if(a[i].sumPoint() > a[j].sumPoint()){
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
                 }
             }
         }
-};
+}
 
 int main(){
     Student sv;
