@@ -22,19 +22,19 @@ class Transcript{
 
 class ScoreReport{
     private:
-        string idSv;
-        string nameSv;
-        string classSv;
+        string idStudent;
+        string nameStudent;
+        string classStudent;
         int schoolYear;
         int n;
         double mediumScore;
         vector<Transcript> list;
     public:
         ScoreReport(){}
-        ScoreReport(string idSv, string nameSv, string classSv, int schoolYear, int n, double mediumScore){
-            this->idSv = idSv;
-            this->nameSv = nameSv;
-            this->classSv = classSv;
+        ScoreReport(string idStudent, string nameStudent, string classStudent, int schoolYear, int n, double mediumScore){
+            this->idStudent = idStudent;
+            this->nameStudent = nameStudent;
+            this->classStudent = classStudent;
             this->schoolYear = schoolYear;
             this->n = n;
             this->mediumScore = mediumScore;
@@ -43,9 +43,9 @@ class ScoreReport{
         void inputBroand(){
             Transcript x;
             cout << "NHAP THONG TIN BANG DIEM" << endl;
-            cout << "Nhap ma so sinh vien: ";  getline(cin,this->idSv);
-            cout << "Nhap ten sinh vien: ";     getline(cin,this->nameSv);
-            cout << "Nhap vao lop: ";   getline(cin,this->classSv);
+            cout << "Nhap ma so sinh vien: ";  getline(cin,this->idStudent);
+            cout << "Nhap ten sinh vien: ";     getline(cin,this->nameStudent);
+            cout << "Nhap vao lop: ";   getline(cin,this->classStudent);
             cout << "Nhap nien khoa: "; cin >> this->schoolYear;
             cout << "Nhap so mon trong bang diem: "; cin >> this->n;
             for(int i = 0; i < this->n; i++){
@@ -72,9 +72,9 @@ class ScoreReport{
         void outPutBroand(){
             cout << "-----------------------------------------------------" << endl;
             cout << "PHIEU BAO DIEM" << endl;
-            cout << "Ma so SV: " << this->idSv << endl;
-            cout << "Ten Sv: " << this->nameSv << endl;
-            cout << "Lop: " << this->classSv << endl;
+            cout << "Ma so SV: " << this->idStudent << endl;
+            cout << "Ten Sv: " << this->nameStudent << endl;
+            cout << "Lop: " << this->classStudent << endl;
             cout << "Nien Khoa: " << this->schoolYear << endl;
             for(int i = 0; i < list.size(); i++){
                 cout << "...................................." << endl;
